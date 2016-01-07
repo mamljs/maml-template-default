@@ -1,1 +1,3 @@
-output: output
+input: content
+layout: layout
+output: site
