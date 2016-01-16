@@ -4,5 +4,5 @@
 ## Build
 
 ```
-node ~/src/js/maml/maml.js init -t default && node ~/src/js/maml/maml.js build
+maml init -t default && maml build
 ```
