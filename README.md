@@ -1,8 +1,10 @@
-# maml website
+# default maml template
 
 
-## Build
+## build
 
+```shell
+maml build -o dist
 ```
-maml init -t default && maml build
-```
+
+A static website will be generated in `dist` folder.

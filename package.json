@@ -1,0 +1,23 @@
+{
+  "name": "maml-template-default",
+  "version": "1.0.0",
+  "description": "default maml template",
+  "dependencies": {
+    "maml": "^0.1.0",
+    "markdown-core": "^0.4.8"
+  },
+  "keywords": [
+    "maml-template",
+    "maml"
+  ],
+  "author": "Tyler Long",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamljs/maml-template-default.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mamljs/maml-template-default/issues"
+  },
+  "homepage": "https://github.com/mamljs/maml-template-default#readme"
+}
