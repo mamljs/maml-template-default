@@ -8,6 +8,5 @@ mermaid.ganttConfig = {
 
 
 $(function() {
-  $.material.init();
   mermaid.init(undefined, $('article.markdown-body .mermaid'));
 });
