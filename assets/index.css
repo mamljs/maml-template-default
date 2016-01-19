@@ -1,7 +1,6 @@
-body {
-  padding-top: 64px;
+.markdown-body {
+  padding-top: 0;
 }
-
 
 .footnotes p {
   font-size: 100%;
