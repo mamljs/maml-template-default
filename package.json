@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "default maml template",
   "dependencies": {
-    "maml": "^0.1.0"
+    "cheerio": "^0.19.0",
+    "maml": "^0.1.0",
+    "markdown-core": "^0.5.0"
   },
   "keywords": [
     "maml-template",
