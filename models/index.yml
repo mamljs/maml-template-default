@@ -5,4 +5,4 @@ view: index
 brand: maml
 title: Welcome
 title_suffix: " | maml static website generator"
-navbar_items: [ /download/, /docs/ ]
+navbar_items: [ /download/, /tutorial/, /docs/ ]
