@@ -9,7 +9,7 @@ function index(page) {
   var $ = cheerio.load(html);
   var sidebarMD = '';
   $('h1').each(function(idx, h1) {
-    sidebarMD += `${idx}. [${$(h1).text()}](/docs/)\n`;
+    sidebarMD += `${idx}. <a href="#${$(h1).attr('id')}">${$(h1).text()}</a>\n`;
   });
   page.sidebar = mdc.render(sidebarMD);
 

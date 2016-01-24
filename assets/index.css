@@ -6,6 +6,10 @@ body {
   font-size: 100%;
 }
 
+.sidebar {
+  margin-top: 32px;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
