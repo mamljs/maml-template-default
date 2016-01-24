@@ -1,28 +1,35 @@
-# 前言
+# Prerequisites
 
-本书覆盖 ES6/ES7 与 ES5 的所有不同之处，对涉及的语法知识给予详细介绍，并给出大量简洁易懂的示例代码。
+`maml` has been tested with OS X, and it is the recommended operating system.
 
+However, it should also work with Linux without problem.
 
-# ECMAScript 6简介
+Windows is not supported and we have no plan to support it.
 
-ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
-
-
-# let和const命令
-
-ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。
+[Node.js](https://nodejs.org) is required and it could be installed via `brew install node`.
 
 
-# 变量的解构赋值
+# Installation
 
-ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
-
-
-# 字符串的扩展
-
-JavaScript内部，字符以UTF-16的格式储存，每个字符固定为2个字节。对于那些需要4个字节储存的字符（Unicode码点大于0xFFFF的字符），JavaScript会认为它们是两个字符。
+Installation is as simple as `npm install -g maml`.
 
 
-# 正则的扩展
+# Create a new website
 
-ES6对正则表达式添加了u修饰符，含义为“Unicode模式”，用来正确处理大于\uFFFF的Unicode字符。也就是说，会正确处理四个字节的UTF-16编码。
+```shell
+make mywebsite
+cd  mywebsite
+maml init
+```
+
+
+# Build the website
+
+In the root folder of the website, run `maml build`.
+
+Static website will be generated in `./dist` folder
+
+
+# Deploy
+
+Since the generated website is pure static, it could be deployed onto any HTTP server, such as Nginx. You can also upload the website to GitHub Pages or Amazon S3.
