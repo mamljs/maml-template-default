@@ -1,84 +1,78 @@
-var mdc = require('markdown-core/markdown-core-node');
-var cheerio = require('cheerio');
+var mdi = require('markdown-it')({ html: true, xhtmlOut: true })
+var cheerio = require('cheerio')
 
-
-function getHTML(markdown) {
-  return mdc.render(markdown);
+function getHTML (markdown) {
+  return mdi.render(markdown)
 }
-
 
 // get html with data-source-line attributes
-function getMappedHTML(markdown) {
-  mdc.map = true;
-  var html = mdc.render(markdown);
-  mdc.map = false;
-  return html;
+function getMappedHTML (markdown) {
+  mdi.map = true
+  var html = mdi.render(markdown)
+  mdi.map = false
+  return html
 }
 
-
 // split markdown by <h1>
-function split(markdown) {
-  var html = getMappedHTML(markdown);
-  var lines = markdown.split('\n');
-  var $ = cheerio.load(html);
+function split (markdown) {
+  var html = getMappedHTML(markdown)
+  var lines = markdown.split('\n')
+  var $ = cheerio.load(html)
   var pages = $('h1').toArray().map(h1 => {
     return {
       id: $(h1).attr('id'),
       name: $(h1).text(),
-      source_line: $(h1).data('source-line') - 1,
-    };
-  });
-  for(var i = 0; i < pages.length - 1; i++) {
-    var page = pages[i];
-    var next_page = pages[i + 1];
-    page.markdown = lines.slice(page.source_line + 1, next_page.source_line).join('\n');
-    page.html = `<h1>${page.name}</h1>\n` + getHTML(page.markdown);
+      source_line: $(h1).data('source-line') - 1
+    }
+  })
+  for (var i = 0; i < pages.length - 1; i++) {
+    var page = pages[i]
+    var next_page = pages[i + 1]
+    page.markdown = lines.slice(page.source_line + 1, next_page.source_line).join('\n')
+    page.html = `<h1>${page.name}</h1>\n` + getHTML(page.markdown)
   }
-  page = pages[pages.length - 1];
-  page.markdown = lines.slice(page.source_line + 1, -1).join('\n');
-  page.html = `<h1>${page.name}</h1>\n` + getHTML(page.markdown);
-  return pages;
+  page = pages[pages.length - 1]
+  page.markdown = lines.slice(page.source_line + 1, -1).join('\n')
+  page.html = `<h1>${page.name}</h1>\n` + getHTML(page.markdown)
+  return pages
 }
-
 
 // get html code for sidebar
-function sidebar(base_pathname, pages, idx) {
-  var sidebarMD = '';
-  for(var i = 0; i < pages.length; i++) {
-    var page = pages[i];
-    var pathname = base_pathname; // i == 0
-    if(i > 0) {
-      pathname += `${pages[i].id}/`;
+function sidebar (base_pathname, pages, idx) {
+  var sidebarMD = ''
+  for (var i = 0; i < pages.length; i++) {
+    var page = pages[i]
+    var pathname = base_pathname // i == 0
+    if (i > 0) {
+      pathname += `${pages[i].id}/`
     }
-    if(i == idx) { // current link
-      sidebarMD += `${i}. ${page.name}\n`;
+    if (i == idx) { // current link
+      sidebarMD += `${i}. ${page.name}\n`
     } else {
-      sidebarMD += `${i}. <a href="${pathname}">${page.name}</a>\n`;
+      sidebarMD += `${i}. <a href="${pathname}">${page.name}</a>\n`
     }
   }
-  return mdc.render(sidebarMD);
+  return mdi.render(sidebarMD)
 }
-
 
 // the action method
-function index(page) {
-  var pages = split(page.markdown);
-  var base_pathname = page.pathname;
-  for(var i = 0; i < pages.length; i++) {
-    var pathname = base_pathname; // i == 0
-    if(i > 0) {
-      pathname += `${pages[i].id}/`;
+function index (page) {
+  var pages = split(page.markdown)
+  var base_pathname = page.pathname
+  for (var i = 0; i < pages.length; i++) {
+    var pathname = base_pathname // i == 0
+    if (i > 0) {
+      pathname += `${pages[i].id}/`
     }
-    page.pathname = pathname;
-    page.sidebar = sidebar(base_pathname, pages, i);
-    page.markdown = pages[i].markdown;
-    page.html = pages[i].html;
-    page.title = pages[i].name;
-    page.generate();
+    page.pathname = pathname
+    page.sidebar = sidebar(base_pathname, pages, i)
+    page.markdown = pages[i].markdown
+    page.html = pages[i].html
+    page.title = pages[i].name
+    page.generate()
   }
 }
 
-
 module.exports = {
-  index: index,
-};
+  index: index
+}

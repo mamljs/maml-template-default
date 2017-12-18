@@ -2,10 +2,13 @@
   "name": "maml-template-default",
   "version": "1.0.0",
   "description": "default maml template",
+  "scripts": {
+    "upgrade": "yarn-upgrade-all"
+  },
   "dependencies": {
-    "cheerio": "^0.19.0",
-    "maml": "^0.1.0",
-    "markdown-core": "^0.5.0"
+    "cheerio": "^1.0.0-rc.2",
+    "maml": "^0.2.0",
+    "markdown-it": "^8.4.0"
   },
   "keywords": [
     "maml-template",
@@ -20,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/mamljs/maml-template-default/issues"
   },
-  "homepage": "https://github.com/mamljs/maml-template-default#readme"
+  "homepage": "https://github.com/mamljs/maml-template-default#readme",
+  "devDependencies": {
+    "standard": "^10.0.3",
+    "yarn-upgrade-all": "^0.2.0"
+  }
 }
