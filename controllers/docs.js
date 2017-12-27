@@ -27,8 +27,8 @@ function split (markdown) {
   })
   for (var i = 0; i < pages.length - 1; i++) {
     var page = pages[i]
-    var next_page = pages[i + 1]
-    page.markdown = lines.slice(page.source_line + 1, next_page.source_line).join('\n')
+    var nextPage = pages[i + 1]
+    page.markdown = lines.slice(page.source_line + 1, nextPage.source_line).join('\n')
     page.html = `<h1>${page.name}</h1>\n` + getHTML(page.markdown)
   }
   page = pages[pages.length - 1]
@@ -38,15 +38,15 @@ function split (markdown) {
 }
 
 // get html code for sidebar
-function sidebar (base_pathname, pages, idx) {
+function sidebar (basePathname, pages, idx) {
   var sidebarMD = ''
   for (var i = 0; i < pages.length; i++) {
     var page = pages[i]
-    var pathname = base_pathname // i == 0
+    var pathname = basePathname // i == 0
     if (i > 0) {
       pathname += `${pages[i].id}/`
     }
-    if (i == idx) { // current link
+    if (i === idx) { // current link
       sidebarMD += `${i}. ${page.name}\n`
     } else {
       sidebarMD += `${i}. <a href="${pathname}">${page.name}</a>\n`
@@ -58,14 +58,14 @@ function sidebar (base_pathname, pages, idx) {
 // the action method
 function index (page) {
   var pages = split(page.markdown)
-  var base_pathname = page.pathname
+  var basePathname = page.pathname
   for (var i = 0; i < pages.length; i++) {
-    var pathname = base_pathname // i == 0
+    var pathname = basePathname // i == 0
     if (i > 0) {
       pathname += `${pages[i].id}/`
     }
     page.pathname = pathname
-    page.sidebar = sidebar(base_pathname, pages, i)
+    page.sidebar = sidebar(basePathname, pages, i)
     page.markdown = pages[i].markdown
     page.html = pages[i].html
     page.title = pages[i].name
