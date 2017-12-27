@@ -1,15 +1,15 @@
-var mdi = require('markdown-it')({ html: true, xhtmlOut: true })
+var mdc = require('markdown-core')
 var cheerio = require('cheerio')
 
 function getHTML (markdown) {
-  return mdi.render(markdown)
+  return mdc.render(markdown)
 }
 
 // get html with data-source-line attributes
 function getMappedHTML (markdown) {
-  mdi.map = true
-  var html = mdi.render(markdown)
-  mdi.map = false
+  mdc.map = true
+  var html = mdc.render(markdown)
+  mdc.map = false
   return html
 }
 
@@ -52,7 +52,7 @@ function sidebar (base_pathname, pages, idx) {
       sidebarMD += `${i}. <a href="${pathname}">${page.name}</a>\n`
     }
   }
-  return mdi.render(sidebarMD)
+  return mdc.render(sidebarMD)
 }
 
 // the action method

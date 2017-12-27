@@ -4,7 +4,7 @@
 ## build
 
 ```shell
-maml build -o dist
+yarn build
 ```
 
 A static website will be generated in `dist` folder.

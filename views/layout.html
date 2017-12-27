@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="/index.css">
   <script src="https://cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/mermaid/0.5.6/mermaid.min.js"></script>
   <script src="/index.js"></script>
 </head>
 <body>
@@ -29,9 +28,9 @@
         <ul class="nav navbar-nav">
           {% for navbar_item in navbar_items %}
             {% if pathname.startsWith(navbar_item) %}
-              <li class="active"><a href="{{ navbar_item }}">{{ g.config[navbar_item].name }}</a></li>
+              <li class="active"><a href="{{ navbar_item }}">{{ configs[navbar_item].name }}</a></li>
             {% else %}
-              <li><a href="{{ navbar_item }}">{{ g.config[navbar_item].name }}</a></li>
+              <li><a href="{{ navbar_item }}">{{ configs[navbar_item].name }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
