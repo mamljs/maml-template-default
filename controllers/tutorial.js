@@ -13,7 +13,7 @@ function index (page) {
   page.sidebar = mdc.render(sidebarMD)
 
   page.html = mdc.render(page.markdown)
-  page.generate()
+  page.build()
 }
 
 module.exports = {

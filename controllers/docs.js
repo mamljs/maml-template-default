@@ -69,7 +69,7 @@ function index (page) {
     page.markdown = pages[i].markdown
     page.html = pages[i].html
     page.title = pages[i].name
-    page.generate()
+    page.build()
   }
 }
 
