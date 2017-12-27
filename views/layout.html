@@ -27,7 +27,7 @@
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="nav navbar-nav">
           {% for navbar_item in page.navbar_items %}
-            {% if pathname.startsWith(navbar_item) %}
+            {% if page.pathname.startsWith(navbar_item) %}
               <li class="active"><a href="{{ navbar_item }}">{{ pages[navbar_item].name }}</a></li>
             {% else %}
               <li><a href="{{ navbar_item }}">{{ pages[navbar_item].name }}</a></li>
