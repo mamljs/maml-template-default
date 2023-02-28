@@ -1,6 +1,6 @@
 {
   "name": "maml-template-default",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "default maml template",
   "scripts": {
     "upgrade": "yarn-upgrade-all",
@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/mamljs/maml-template-default#readme",
   "devDependencies": {
-    "standard": "^10.0.3",
     "yarn-upgrade-all": "^0.2.0"
   }
 }
