@@ -7,8 +7,8 @@
     "build": "maml build -o dist"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "maml": "^0.2.0",
+    "cheerio": "^1.0.0-rc.12",
+    "maml": "^0.7.0",
     "markdown-core": "^1.2.1"
   },
   "keywords": [
@@ -26,6 +26,6 @@
   },
   "homepage": "https://github.com/mamljs/maml-template-default#readme",
   "devDependencies": {
-    "yarn-upgrade-all": "^0.2.0"
+    "yarn-upgrade-all": "^0.7.2"
   }
 }
