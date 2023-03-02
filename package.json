@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
-    "maml": "^0.8.1",
+    "maml": "^0.8.4",
     "markdown-core": "^1.2.1"
   },
   "keywords": [
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/mamljs/maml-template-default#readme",
   "devDependencies": {
+    "@types/node": "^18.14.3",
     "yarn-upgrade-all": "^0.7.2"
   }
 }

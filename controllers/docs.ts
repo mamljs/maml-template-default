@@ -1,16 +1,16 @@
-var mdc = require('markdown-core')
-var cheerio = require('cheerio')
+import mdc from 'markdown-core';
+import cheerio from 'cheerio'
 
 function getHTML (markdown) {
-  return mdc.render(markdown)
+  return mdc.render(markdown);
 }
 
 // get html with data-source-line attributes
 function getMappedHTML (markdown) {
-  mdc.map = true
-  var html = mdc.render(markdown)
-  mdc.map = false
-  return html
+  mdc.map = true;
+  var html = mdc.render(markdown);
+  mdc.map = false;
+  return html;
 }
 
 // split markdown by <h1>
@@ -22,7 +22,9 @@ function split (markdown) {
     return {
       id: $(h1).attr('id'),
       name: $(h1).text(),
-      source_line: $(h1).data('source-line') - 1
+      source_line: ($(h1).data('source-line') as number) - 1,
+      markdown: '',
+      html: ''
     }
   })
   for (var i = 0; i < pages.length - 1; i++) {
@@ -56,7 +58,7 @@ function sidebar (basePathname, pages, idx) {
 }
 
 // the action method
-function index (page) {
+export const index = (page) => {
   var pages = split(page.markdown)
   var basePathname = page.pathname
   for (var i = 0; i < pages.length; i++) {
@@ -71,8 +73,4 @@ function index (page) {
     page.title = pages[i].name
     page.build()
   }
-}
-
-module.exports = {
-  index: index
 }

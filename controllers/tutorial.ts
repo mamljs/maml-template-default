@@ -1,7 +1,7 @@
-var mdc = require('markdown-core')
-var cheerio = require('cheerio')
+import mdc from 'markdown-core';
+import cheerio from 'cheerio';
 
-function index (page) {
+export const index = (page) => {
   mdc.map = true
   var html = mdc.render(page.markdown)
   mdc.map = false
@@ -14,8 +14,4 @@ function index (page) {
 
   page.html = mdc.render(page.markdown)
   page.build()
-}
-
-module.exports = {
-  index: index
 }
