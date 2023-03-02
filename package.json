@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
-    "maml": "^0.7.0",
+    "maml": "^0.8.1",
     "markdown-core": "^1.2.1"
   },
   "keywords": [
